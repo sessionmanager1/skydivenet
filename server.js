@@ -2,6 +2,7 @@
 // Holds the Paystack SECRET key server-side and triggers direct M-Pesa STK push
 // via Paystack's Charge API. Never expose this key in frontend code.
 
+require("dotenv").config();
 const express = require("express");
 const cors = require("cors");
 const fetch = require("node-fetch"); // npm i node-fetch@2
