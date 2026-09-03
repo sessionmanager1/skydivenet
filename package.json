@@ -1,0 +1,15 @@
+{
+  "name": "skydivenet-backend",
+  "version": "1.0.0",
+  "description": "Backend for SKYDIVE NET website — handles Paystack M-Pesa STK push charges securely.",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.19.2",
+    "cors": "^2.8.5",
+    "axios": "^1.7.2",
+    "dotenv": "^16.4.5"
+  }
+}
