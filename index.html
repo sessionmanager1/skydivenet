@@ -1,0 +1,810 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SKYDIVE NET — Fast. Reliable. Connected. | WiFi Kakamega, Lurambi</title>
+<meta name="description" content="SKYDIVE NET provides affordable Home WiFi and Hotspot WiFi in Kakamega – Lurambi, Kenya. Packages from KSH 1,500/month. Free hotspot WiFi for rental houses with 10+ doors. Fast, reliable, local internet.">
+<meta name="keywords" content="SKYDIVE NET, WiFi Kakamega, Internet Kakamega, WiFi Lurambi, Home WiFi Kakamega, Hotspot WiFi Kakamega, Affordable WiFi Kakamega, Internet provider Kakamega">
+<meta property="og:title" content="SKYDIVE NET — Fast. Reliable. Connected.">
+<meta property="og:description" content="Affordable Home & Hotspot WiFi in Kakamega – Lurambi, Kenya. Plans from KSH 1,500/month.">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="en_KE">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='46' fill='%230A1628'/%3E%3Cpath d='M20 55a42 42 0 0 1 60 0M30 68a28 28 0 0 1 40 0M42 80a12 12 0 0 1 16 0' stroke='%234FA3FF' stroke-width='6' fill='none' stroke-linecap='round'/%3E%3Ccircle cx='50' cy='90' r='5' fill='%234FA3FF'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy-deep:#060e1e;
+    --navy:#0b1930;
+    --navy-soft:#122a4a;
+    --blue-deep:#0f2a52;
+    --blue:#2e7cf6;
+    --blue-bright:#4fa3ff;
+    --blue-light:#a9d3ff;
+    --ice:#eaf3ff;
+    --white:#ffffff;
+    --glass:rgba(255,255,255,0.06);
+    --glass-strong:rgba(255,255,255,0.10);
+    --glass-border:rgba(255,255,255,0.16);
+    --shadow-blue:rgba(46,124,246,0.35);
+    --radius:20px;
+    --radius-sm:14px;
+    --font-display:'Space Grotesk', sans-serif;
+    --font-body:'Inter', sans-serif;
+    --maxw:1180px;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:var(--font-body);
+    background:
+      radial-gradient(ellipse 900px 600px at 15% -10%, rgba(46,124,246,0.35), transparent 60%),
+      radial-gradient(ellipse 800px 700px at 110% 10%, rgba(79,163,255,0.25), transparent 55%),
+      radial-gradient(ellipse 1000px 800px at 50% 120%, rgba(46,124,246,0.18), transparent 60%),
+      linear-gradient(180deg, var(--navy-deep), var(--navy) 40%, #081226 100%);
+    color:var(--ice);
+    min-height:100vh;
+    overflow-x:hidden;
+    line-height:1.6;
+  }
+  h1,h2,h3,h4{font-family:var(--font-display); color:var(--white); line-height:1.15; font-weight:600;}
+  a{color:inherit; text-decoration:none;}
+  ul{list-style:none;}
+  img{max-width:100%; display:block;}
+  .wrap{max-width:var(--maxw); margin:0 auto; padding:0 24px;}
+  section{padding:110px 0;}
+  @media(max-width:720px){section{padding:72px 0;}}
+
+  /* ---------- Reveal on scroll ---------- */
+  .reveal{opacity:0; transform:translateY(24px); transition:opacity .7s ease, transform .7s ease;}
+  .reveal.in{opacity:1; transform:translateY(0);}
+  @media(prefers-reduced-motion: reduce){
+    .reveal{opacity:1; transform:none; transition:none;}
+    *{scroll-behavior:auto !important; animation:none !important;}
+  }
+
+  /* ---------- Glass utility ---------- */
+  .glass{
+    background:var(--glass);
+    border:1px solid var(--glass-border);
+    backdrop-filter:blur(18px) saturate(140%);
+    -webkit-backdrop-filter:blur(18px) saturate(140%);
+    border-radius:var(--radius);
+    box-shadow:0 8px 32px rgba(0,0,0,0.35);
+  }
+
+  /* ---------- Nav ---------- */
+  header{
+    position:fixed; top:16px; left:0; right:0; z-index:100;
+    display:flex; justify-content:center;
+  }
+  .nav{
+    width:min(1180px, calc(100% - 32px));
+    display:flex; align-items:center; justify-content:space-between;
+    padding:14px 22px;
+    background:rgba(10,20,40,0.55);
+    border:1px solid var(--glass-border);
+    backdrop-filter:blur(20px) saturate(160%);
+    -webkit-backdrop-filter:blur(20px) saturate(160%);
+    border-radius:999px;
+    box-shadow:0 8px 30px rgba(0,0,0,0.4);
+  }
+  .brand{display:flex; align-items:center; gap:10px; font-family:var(--font-display); font-weight:700; font-size:1.1rem; color:var(--white);}
+  .brand .dot{width:10px; height:10px; border-radius:50%; background:var(--blue-bright); box-shadow:0 0 14px var(--blue-bright);}
+  .nav-links{display:flex; gap:28px; align-items:center;}
+  .nav-links a{font-size:0.94rem; color:var(--blue-light); font-weight:500; transition:color .2s;}
+  .nav-links a:hover{color:var(--white);}
+  .btn{
+    display:inline-flex; align-items:center; justify-content:center; gap:8px;
+    padding:12px 24px; border-radius:999px; font-weight:600; font-size:0.95rem;
+    cursor:pointer; border:none; transition:transform .2s ease, box-shadow .2s ease;
+  }
+  .btn-primary{
+    background:linear-gradient(135deg, var(--blue-bright), var(--blue));
+    color:var(--white); box-shadow:0 6px 24px var(--shadow-blue);
+  }
+  .btn-primary:hover{transform:translateY(-2px); box-shadow:0 10px 30px var(--shadow-blue);}
+  .btn-ghost{
+    background:var(--glass-strong); color:var(--white); border:1px solid var(--glass-border);
+  }
+  .btn-ghost:hover{background:rgba(255,255,255,0.16);}
+  .btn-block{width:100%;}
+  .nav-cta{display:none;}
+  @media(min-width:860px){.nav-cta{display:inline-flex;}}
+  .hamburger{display:flex; flex-direction:column; gap:5px; cursor:pointer; padding:6px;}
+  .hamburger span{width:22px; height:2px; background:var(--white); border-radius:2px; transition:.3s;}
+  @media(min-width:860px){.hamburger{display:none;}}
+  .nav-links{display:none;}
+  @media(min-width:860px){.nav-links{display:flex;}}
+  .mobile-menu{
+    display:none; position:fixed; top:78px; left:16px; right:16px; z-index:99;
+    padding:18px; flex-direction:column; gap:16px;
+  }
+  .mobile-menu.open{display:flex;}
+  .mobile-menu a{font-size:1rem; color:var(--ice); padding:6px 0;}
+
+  /* ---------- Hero ---------- */
+  .hero{
+    position:relative; padding:180px 0 120px; text-align:center; overflow:hidden;
+  }
+  .hero-net{
+    position:absolute; inset:0; z-index:0; opacity:0.55; pointer-events:none;
+  }
+  .hero-content{position:relative; z-index:1;}
+  .eyebrow{
+    display:inline-flex; align-items:center; gap:8px; padding:8px 18px; border-radius:999px;
+    font-size:0.85rem; color:var(--blue-light); margin-bottom:26px; font-weight:500;
+  }
+  .hero h1{font-size:clamp(2.6rem, 7vw, 5rem); letter-spacing:-0.02em;}
+  .hero .tagline{
+    font-family:var(--font-display); font-size:clamp(1.1rem, 2.4vw, 1.5rem); color:var(--blue-bright);
+    margin-top:14px; font-weight:500;
+  }
+  .hero p.desc{
+    max-width:560px; margin:26px auto 0; color:var(--blue-light); font-size:1.05rem;
+  }
+  .hero-actions{display:flex; gap:16px; justify-content:center; margin-top:40px; flex-wrap:wrap;}
+  .hero-stats{
+    display:flex; gap:14px; justify-content:center; margin-top:64px; flex-wrap:wrap;
+  }
+  .stat{padding:18px 26px; min-width:150px;}
+  .stat b{display:block; font-family:var(--font-display); font-size:1.6rem; color:var(--white);}
+  .stat span{font-size:0.85rem; color:var(--blue-light);}
+
+  /* ---------- Section headers ---------- */
+  .sec-head{max-width:640px; margin:0 auto 56px; text-align:center;}
+  .sec-head h2{font-size:clamp(1.8rem, 4vw, 2.6rem);}
+  .sec-head p{color:var(--blue-light); margin-top:14px; font-size:1.02rem;}
+
+  /* ---------- Services ---------- */
+  .grid-3{display:grid; grid-template-columns:repeat(auto-fit, minmax(260px,1fr)); gap:24px;}
+  .card{padding:32px 28px; transition:transform .25s ease, border-color .25s ease;}
+  .card:hover{transform:translateY(-6px); border-color:rgba(79,163,255,0.5);}
+  .card .icon{
+    width:56px; height:56px; border-radius:16px; display:flex; align-items:center; justify-content:center;
+    background:linear-gradient(135deg, rgba(79,163,255,0.25), rgba(46,124,246,0.1));
+    font-size:1.6rem; margin-bottom:20px; border:1px solid var(--glass-border);
+  }
+  .card h3{font-size:1.2rem; margin-bottom:10px;}
+  .card p{color:var(--blue-light); font-size:0.95rem;}
+  .tag-list{display:flex; flex-wrap:wrap; gap:8px; margin-top:16px;}
+  .tag-list span{
+    font-size:0.78rem; padding:5px 12px; border-radius:999px; background:rgba(255,255,255,0.06);
+    border:1px solid var(--glass-border); color:var(--blue-light);
+  }
+  .offer-badge{
+    display:inline-block; margin-top:18px; padding:10px 16px; border-radius:var(--radius-sm);
+    background:linear-gradient(135deg, rgba(79,163,255,0.25), rgba(46,124,246,0.15));
+    border:1px solid rgba(79,163,255,0.5); font-size:0.85rem; font-weight:600; color:var(--white);
+  }
+
+  /* ---------- Pricing ---------- */
+  .pricing-grid{display:grid; grid-template-columns:repeat(auto-fit, minmax(250px,1fr)); gap:22px;}
+  .plan{
+    padding:32px 26px; position:relative; display:flex; flex-direction:column; gap:18px;
+  }
+  .plan.popular{border-color:var(--blue-bright); box-shadow:0 0 0 1px rgba(79,163,255,0.4), 0 12px 40px var(--shadow-blue);}
+  .plan-badge{
+    position:absolute; top:-14px; left:50%; transform:translateX(-50%);
+    background:linear-gradient(135deg, var(--blue-bright), var(--blue)); color:var(--white);
+    font-size:0.75rem; font-weight:700; padding:6px 16px; border-radius:999px; letter-spacing:0.03em;
+  }
+  .plan .speed{font-family:var(--font-display); font-size:1.6rem; color:var(--white);}
+  .plan .price{font-size:2.2rem; font-family:var(--font-display); color:var(--white);}
+  .plan .price small{font-size:1rem; color:var(--blue-light); font-weight:400;}
+  .plan p.desc-p{color:var(--blue-light); font-size:0.92rem; flex-grow:1;}
+  .install-note{
+    text-align:center; margin-top:34px; color:var(--blue-light); font-size:0.95rem;
+  }
+  .install-note b{color:var(--white);}
+
+  /* ---------- Special offer ---------- */
+  .offer-section{
+    padding:64px 40px; text-align:center; position:relative; overflow:hidden;
+    background:
+      radial-gradient(ellipse 700px 400px at 50% 0%, rgba(79,163,255,0.3), transparent 70%),
+      var(--glass);
+  }
+  .offer-section h2{font-size:clamp(1.8rem,4vw,2.4rem); margin-top:8px;}
+  .offer-section .offer-kicker{color:var(--blue-bright); font-weight:600; letter-spacing:0.02em;}
+  .offer-section p{max-width:520px; margin:18px auto 30px; color:var(--blue-light);}
+
+  /* ---------- How it works ---------- */
+  .steps{display:grid; grid-template-columns:repeat(auto-fit, minmax(220px,1fr)); gap:24px; counter-reset: step;}
+  .step{padding:28px 24px; position:relative;}
+  .step .num{font-family:var(--font-display); font-size:2rem; color:rgba(79,163,255,0.5); margin-bottom:14px;}
+  .step h4{font-size:1.05rem; margin-bottom:8px;}
+  .step p{color:var(--blue-light); font-size:0.92rem;}
+
+  /* ---------- Payment ---------- */
+  .pay-wrap{max-width:520px; margin:0 auto; padding:36px; display:flex; flex-direction:column; gap:20px;}
+  .pay-plan-select{display:grid; grid-template-columns:1fr 1fr; gap:10px;}
+  .pay-plan-option{
+    padding:14px; border-radius:var(--radius-sm); border:1px solid var(--glass-border);
+    background:rgba(255,255,255,0.04); cursor:pointer; text-align:left; transition:.2s;
+  }
+  .pay-plan-option.active{border-color:var(--blue-bright); background:rgba(79,163,255,0.14);}
+  .pay-plan-option b{display:block; color:var(--white); font-size:0.95rem;}
+  .pay-plan-option span{color:var(--blue-light); font-size:0.82rem;}
+  .field{display:flex; flex-direction:column; gap:8px;}
+  .field label{font-size:0.88rem; color:var(--blue-light); font-weight:500;}
+  .field input, .field select, .field textarea{
+    padding:13px 16px; border-radius:12px; border:1px solid var(--glass-border);
+    background:rgba(255,255,255,0.05); color:var(--white); font-family:var(--font-body); font-size:0.95rem;
+    outline:none; transition:border-color .2s;
+  }
+  .field input::placeholder, .field textarea::placeholder{color:rgba(234,243,255,0.4);}
+  .field input:focus, .field select:focus, .field textarea:focus{border-color:var(--blue-bright);}
+  .pay-total{
+    display:flex; justify-content:space-between; align-items:center; padding:16px 20px;
+    border-radius:var(--radius-sm); background:rgba(79,163,255,0.1); border:1px solid rgba(79,163,255,0.3);
+  }
+  .pay-total b{font-family:var(--font-display); font-size:1.3rem; color:var(--white);}
+  .pay-status{padding:16px 20px; border-radius:var(--radius-sm); font-size:0.92rem; display:none;}
+  .pay-status.show{display:block;}
+  .pay-status.pending{background:rgba(79,163,255,0.12); border:1px solid rgba(79,163,255,0.35); color:var(--blue-light);}
+  .pay-status.success{background:rgba(46,204,113,0.12); border:1px solid rgba(46,204,113,0.4); color:#9be8b8;}
+  .pay-status.error{background:rgba(255,90,90,0.12); border:1px solid rgba(255,90,90,0.4); color:#ffb3b3;}
+  .receipt{display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-top:12px; font-size:0.86rem;}
+  .receipt div span{display:block; color:var(--blue-light); font-size:0.75rem; margin-bottom:2px;}
+  .spinner{
+    width:16px; height:16px; border-radius:50%; border:2px solid rgba(255,255,255,0.3);
+    border-top-color:var(--white); display:inline-block; animation:spin .8s linear infinite; vertical-align:-3px; margin-right:8px;
+  }
+  @keyframes spin{to{transform:rotate(360deg);}}
+
+  /* ---------- Why choose / coverage ---------- */
+  .why-grid{display:grid; grid-template-columns:repeat(auto-fit, minmax(240px,1fr)); gap:20px;}
+  .coverage-wrap{display:grid; grid-template-columns:1.1fr 0.9fr; gap:30px; align-items:center;}
+  @media(max-width:800px){.coverage-wrap{grid-template-columns:1fr;}}
+  .map-box{
+    height:280px; border-radius:var(--radius); overflow:hidden; border:1px solid var(--glass-border);
+  }
+  .map-box iframe{width:100%; height:100%; border:0; filter:grayscale(0.2) saturate(1.3);}
+
+  /* ---------- Contact form ---------- */
+  .contact-wrap{display:grid; grid-template-columns:1fr 1fr; gap:30px;}
+  @media(max-width:800px){.contact-wrap{grid-template-columns:1fr;}}
+  .contact-form{padding:34px; display:flex; flex-direction:column; gap:16px;}
+  .contact-info{padding:34px; display:flex; flex-direction:column; gap:22px; justify-content:center;}
+  .contact-info a{display:flex; align-items:center; gap:12px; font-size:1rem; color:var(--white); font-weight:500;}
+  .contact-info .ci-icon{
+    width:44px; height:44px; border-radius:12px; display:flex; align-items:center; justify-content:center;
+    background:rgba(79,163,255,0.15); border:1px solid var(--glass-border); font-size:1.1rem;
+  }
+
+  /* ---------- FAQ ---------- */
+  .faq-item{border-bottom:1px solid var(--glass-border); padding:6px 0;}
+  .faq-item:last-child{border-bottom:none;}
+  .faq-q{
+    display:flex; justify-content:space-between; align-items:center; padding:18px 4px;
+    cursor:pointer; font-weight:600; color:var(--white); font-size:1rem;
+  }
+  .faq-q .plus{transition:transform .25s; color:var(--blue-bright); font-size:1.3rem;}
+  .faq-item.open .plus{transform:rotate(45deg);}
+  .faq-a{max-height:0; overflow:hidden; transition:max-height .3s ease;}
+  .faq-a p{color:var(--blue-light); padding:0 4px 18px; font-size:0.94rem;}
+
+  /* ---------- Footer ---------- */
+  footer{padding:64px 0 30px; border-top:1px solid var(--glass-border); margin-top:40px;}
+  .footer-grid{display:grid; grid-template-columns:1.4fr 1fr 1fr; gap:40px;}
+  @media(max-width:700px){.footer-grid{grid-template-columns:1fr; gap:32px;}}
+  .footer-grid h4{font-size:0.95rem; color:var(--white); margin-bottom:16px;}
+  .footer-grid ul li{margin-bottom:10px;}
+  .footer-grid ul a{color:var(--blue-light); font-size:0.92rem; transition:color .2s;}
+  .footer-grid ul a:hover{color:var(--white);}
+  .footer-bottom{
+    text-align:center; margin-top:50px; padding-top:24px; border-top:1px solid var(--glass-border);
+    color:rgba(169,211,255,0.6); font-size:0.85rem;
+  }
+
+  /* ---------- Floating WhatsApp button ---------- */
+  .float-wa{
+    position:fixed; bottom:22px; right:22px; z-index:120;
+    width:58px; height:58px; border-radius:50%; display:flex; align-items:center; justify-content:center;
+    background:linear-gradient(135deg,#25d366,#128c4a); box-shadow:0 8px 24px rgba(37,211,102,0.5);
+    font-size:1.6rem; color:#fff;
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <nav class="nav">
+    <div class="brand"><span class="dot"></span> SKYDIVE NET</div>
+    <div class="nav-links">
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#services">Services</a>
+      <a href="#packages">Packages</a>
+      <a href="#coverage">Coverage</a>
+      <a href="#contact">Contact</a>
+    </div>
+    <a href="#packages" class="btn btn-primary nav-cta">Get Connected</a>
+    <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
+  </nav>
+</header>
+
+<div class="mobile-menu glass" id="mobileMenu">
+  <a href="#home">Home</a>
+  <a href="#about">About</a>
+  <a href="#services">Services</a>
+  <a href="#packages">Packages</a>
+  <a href="#coverage">Coverage</a>
+  <a href="#contact">Contact</a>
+  <a href="#packages" class="btn btn-primary btn-block">Get Connected</a>
+</div>
+
+<section class="hero" id="home">
+  <svg class="hero-net" viewBox="0 0 1200 500" preserveAspectRatio="none">
+    <defs>
+      <linearGradient id="lineGrad" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0%" stop-color="#4fa3ff" stop-opacity="0.5"/>
+        <stop offset="100%" stop-color="#2e7cf6" stop-opacity="0"/>
+      </linearGradient>
+    </defs>
+    <g stroke="url(#lineGrad)" stroke-width="1.2" fill="none">
+      <circle cx="600" cy="120" r="60"><animate attributeName="r" values="60;90;60" dur="6s" repeatCount="indefinite"/></circle>
+      <circle cx="600" cy="120" r="120" opacity="0.6"/>
+      <circle cx="600" cy="120" r="180" opacity="0.3"/>
+      <path d="M100 400 Q 400 250 600 120 T 1100 60"/>
+      <path d="M50 100 Q 300 300 600 120 T 1150 300"/>
+    </g>
+    <g fill="#4fa3ff">
+      <circle cx="600" cy="120" r="4"><animate attributeName="opacity" values="1;0.2;1" dur="3s" repeatCount="indefinite"/></circle>
+      <circle cx="250" cy="220" r="3" opacity="0.6"/>
+      <circle cx="950" cy="180" r="3" opacity="0.6"/>
+      <circle cx="800" cy="340" r="2.5" opacity="0.5"/>
+    </g>
+  </svg>
+  <div class="wrap hero-content">
+    <div class="eyebrow glass">Now connecting Kakamega – Lurambi</div>
+    <h1>SKYDIVE NET</h1>
+    <div class="tagline">Fast. Reliable. Connected.</div>
+    <p class="desc">Reliable and affordable WiFi solutions for homes, rental properties and businesses in Kakamega – Lurambi.</p>
+    <div class="hero-actions">
+      <a href="#packages" class="btn btn-primary">Get Connected</a>
+      <a href="#packages" class="btn btn-ghost">View Packages</a>
+    </div>
+    <div class="hero-stats">
+      <div class="stat glass"><b>4</b><span>Speed Tiers</span></div>
+      <div class="stat glass"><b>KSH 1,500</b><span>Starting Price</span></div>
+      <div class="stat glass"><b>10+</b><span>Doors = Free Hotspot</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="about">
+  <div class="wrap sec-head reveal">
+    <h2>Local internet, built for Lurambi</h2>
+    <p>SKYDIVE NET is a Kakamega – Lurambi based internet service provider delivering dependable Home WiFi and Hotspot WiFi. We keep households, students, landlords and small businesses connected — with local support and straightforward pricing.</p>
+  </div>
+</section>
+
+<section id="services">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <h2>Our Services</h2>
+      <p>Whatever the space, we have a connection built for it.</p>
+    </div>
+    <div class="grid-3">
+      <div class="card glass reveal">
+        <div class="icon">🏠</div>
+        <h3>Home WiFi</h3>
+        <p>Reliable internet for homes, families and individuals.</p>
+        <div class="tag-list">
+          <span>Browsing</span><span>Streaming</span><span>Video calls</span>
+          <span>Remote work</span><span>Gaming</span><span>Smart devices</span>
+        </div>
+      </div>
+      <div class="card glass reveal">
+        <div class="icon">📶</div>
+        <h3>Hotspot WiFi</h3>
+        <p>Affordable hotspot solutions for rental properties, businesses and shared spaces.</p>
+      </div>
+      <div class="card glass reveal">
+        <div class="icon">🏢</div>
+        <h3>Rental Property WiFi</h3>
+        <p>Reliable connectivity for tenants across rental properties in the area.</p>
+        <div class="offer-badge">FREE hotspot WiFi for rental houses with 10+ doors</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="packages">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <h2>Choose Your Plan</h2>
+      <p>All prices in KSH. No hidden charges.</p>
+    </div>
+    <div class="pricing-grid">
+      <div class="plan glass reveal" data-speed="8 Mbps" data-price="1500">
+        <div class="speed">8 Mbps</div>
+        <div class="price">KSH 1,500<small>/mo</small></div>
+        <p class="desc-p">For browsing, social media and basic streaming.</p>
+        <a href="#" class="btn btn-ghost btn-block plan-select">Get This Plan</a>
+      </div>
+      <div class="plan glass reveal" data-speed="10 Mbps" data-price="2000">
+        <div class="speed">10 Mbps</div>
+        <div class="price">KSH 2,000<small>/mo</small></div>
+        <p class="desc-p">Good for streaming, video calls and multiple devices.</p>
+        <a href="#" class="btn btn-ghost btn-block plan-select">Get This Plan</a>
+      </div>
+      <div class="plan glass reveal" data-speed="16 Mbps" data-price="2500">
+        <div class="speed">16 Mbps</div>
+        <div class="price">KSH 2,500<small>/mo</small></div>
+        <p class="desc-p">Suitable for heavier usage, streaming, gaming and multiple users.</p>
+        <a href="#" class="btn btn-ghost btn-block plan-select">Get This Plan</a>
+      </div>
+      <div class="plan glass popular reveal" data-speed="20 Mbps" data-price="3000">
+        <div class="plan-badge">BEST VALUE</div>
+        <div class="speed">20 Mbps</div>
+        <div class="price">KSH 3,000<small>/mo</small></div>
+        <p class="desc-p">Ideal for larger households, multiple devices, gaming, work from home and high-quality streaming.</p>
+        <a href="#" class="btn btn-primary btn-block plan-select">Get This Plan</a>
+      </div>
+    </div>
+    <p class="install-note">One-time installation fee: <b>KSH 1,000</b></p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="offer-section glass reveal">
+      <div class="offer-kicker">SPECIAL OFFER</div>
+      <h2>Free Hotspot WiFi</h2>
+      <p>Rental houses with over 10 doors qualify for free hotspot WiFi, subject to service availability.</p>
+      <a href="#" id="eligibilityBtn" class="btn btn-primary">Check Eligibility</a>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <h2>Why Choose SKYDIVE NET?</h2>
+    </div>
+    <div class="why-grid">
+      <div class="card glass reveal"><div class="icon">⚡</div><h3>Fast Connectivity</h3><p>Reliable internet for everyday activities.</p></div>
+      <div class="card glass reveal"><div class="icon">💰</div><h3>Affordable Packages</h3><p>Flexible plans at competitive prices.</p></div>
+      <div class="card glass reveal"><div class="icon">🏠</div><h3>Home & Hotspot Solutions</h3><p>Internet solutions for homes, rental properties and shared spaces.</p></div>
+      <div class="card glass reveal"><div class="icon">🛠️</div><h3>Professional Installation</h3><p>Reliable and professional setup.</p></div>
+      <div class="card glass reveal"><div class="icon">📍</div><h3>Local Service</h3><p>Serving Kakamega – Lurambi.</p></div>
+      <div class="card glass reveal"><div class="icon">🤝</div><h3>Customer Support</h3><p>Reach us easily by phone or WhatsApp whenever you need help.</p></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <h2>How It Works</h2>
+    </div>
+    <div class="steps">
+      <div class="step glass reveal"><div class="num">01</div><h4>Choose Your Plan</h4><p>Select the package that fits your needs.</p></div>
+      <div class="step glass reveal"><div class="num">02</div><h4>Enter Your Details</h4><p>Provide your phone number and required information.</p></div>
+      <div class="step glass reveal"><div class="num">03</div><h4>Make Payment</h4><p>Pay directly through M-Pesa STK Push.</p></div>
+      <div class="step glass reveal"><div class="num">04</div><h4>Get Connected</h4><p>Once payment is confirmed, we process your connection.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="pay">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <h2>Pay & Get Connected</h2>
+      <p>Select a plan, enter your M-Pesa number, and pay directly — no external checkout page.</p>
+    </div>
+    <div class="pay-wrap glass reveal">
+      <div class="pay-plan-select" id="payPlanSelect">
+        <div class="pay-plan-option" data-speed="8 Mbps" data-price="1500"><b>8 Mbps</b><span>KSH 1,500/mo</span></div>
+        <div class="pay-plan-option" data-speed="10 Mbps" data-price="2000"><b>10 Mbps</b><span>KSH 2,000/mo</span></div>
+        <div class="pay-plan-option" data-speed="16 Mbps" data-price="2500"><b>16 Mbps</b><span>KSH 2,500/mo</span></div>
+        <div class="pay-plan-option active" data-speed="20 Mbps" data-price="3000"><b>20 Mbps</b><span>KSH 3,000/mo</span></div>
+      </div>
+      <div class="field">
+        <label for="mpesaPhone">M-Pesa Phone Number</label>
+        <input type="tel" id="mpesaPhone" placeholder="07XXXXXXXX">
+      </div>
+      <div class="pay-total">
+        <span>Amount to pay</span>
+        <b id="payAmount">KSH 3,000</b>
+      </div>
+      <button class="btn btn-primary btn-block" id="payNowBtn">Pay Now</button>
+      <div class="pay-status" id="payStatus"></div>
+    </div>
+  </div>
+</section>
+
+<section id="coverage">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <h2>Our Location</h2>
+      <p>Kakamega – Lurambi, Kenya 🇰🇪</p>
+    </div>
+    <div class="coverage-wrap reveal">
+      <div class="glass" style="padding:34px;">
+        <h3 style="margin-bottom:14px;">Serving Lurambi & surrounding areas</h3>
+        <p style="color:var(--blue-light); font-size:0.96rem;">SKYDIVE NET provides Home WiFi and Hotspot WiFi across the Lurambi area, with coverage extending to surrounding neighbourhoods where installation is available. Not sure if we cover your area? Send us your location on WhatsApp and we'll confirm availability.</p>
+        <a href="#" class="btn btn-primary" style="margin-top:22px;" id="coverageWaBtn">Check Coverage on WhatsApp</a>
+      </div>
+      <div class="map-box glass">
+        <iframe src="https://www.google.com/maps?q=Lurambi,Kakamega,Kenya&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <h2>Get In Touch</h2>
+      <p>We usually respond within minutes on WhatsApp.</p>
+    </div>
+    <div class="contact-wrap reveal">
+      <form class="contact-form glass" id="contactForm">
+        <div class="field">
+          <label for="cfName">Full Name</label>
+          <input type="text" id="cfName" required placeholder="Your name">
+        </div>
+        <div class="field">
+          <label for="cfPhone">Phone Number</label>
+          <input type="tel" id="cfPhone" required placeholder="07XXXXXXXX">
+        </div>
+        <div class="field">
+          <label for="cfService">Service Required</label>
+          <select id="cfService">
+            <option>Home WiFi</option>
+            <option>Hotspot WiFi</option>
+            <option>Rental Property WiFi</option>
+            <option>Installation</option>
+            <option>General Inquiry</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="cfPackage">Preferred Package</label>
+          <select id="cfPackage">
+            <option>8 Mbps — KSH 1,500</option>
+            <option>10 Mbps — KSH 2,000</option>
+            <option>16 Mbps — KSH 2,500</option>
+            <option selected>20 Mbps — KSH 3,000</option>
+            <option>Not sure yet</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="cfMessage">Message</label>
+          <textarea id="cfMessage" rows="3" placeholder="Tell us a bit more..."></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary btn-block">Send Request</button>
+      </form>
+      <div class="contact-info glass">
+        <a href="tel:+254719603552"><span class="ci-icon">📞</span> Call Now — +254 719 603 552</a>
+        <a href="#" id="waMainBtn"><span class="ci-icon">💬</span> Chat on WhatsApp</a>
+        <a href="#coverage"><span class="ci-icon">📍</span> Kakamega – Lurambi, Kenya</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <h2>Frequently Asked Questions</h2>
+    </div>
+    <div class="glass reveal" style="padding:12px 30px; max-width:760px; margin:0 auto;" id="faqList">
+      <div class="faq-item open">
+        <div class="faq-q">What area does SKYDIVE NET serve?<span class="plus">+</span></div>
+        <div class="faq-a" style="max-height:100px;"><p>Kakamega – Lurambi and surrounding areas where service is available.</p></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">How much is installation?<span class="plus">+</span></div>
+        <div class="faq-a"><p>Installation costs KSH 1,000.</p></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Do you offer home WiFi?<span class="plus">+</span></div>
+        <div class="faq-a"><p>Yes, SKYDIVE NET provides home WiFi services.</p></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Do you offer hotspot WiFi?<span class="plus">+</span></div>
+        <div class="faq-a"><p>Yes, hotspot WiFi is available for suitable locations and rental properties.</p></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Can rental houses get free hotspot WiFi?<span class="plus">+</span></div>
+        <div class="faq-a"><p>Rental houses with over 10 doors qualify for free hotspot WiFi, subject to service availability.</p></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">What packages do you offer?<span class="plus">+</span></div>
+        <div class="faq-a"><p>8 Mbps — KSH 1,500 · 10 Mbps — KSH 2,000 · 16 Mbps — KSH 2,500 · 20 Mbps — KSH 3,000</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <div class="brand" style="margin-bottom:12px;"><span class="dot"></span> SKYDIVE NET</div>
+        <p style="color:var(--blue-light); font-size:0.92rem;">Fast. Reliable. Connected.<br>Kakamega – Lurambi, Kenya 🇰🇪<br>+254 719 603 552</p>
+      </div>
+      <div>
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#packages">Packages</a></li>
+          <li><a href="#coverage">Coverage</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Services</h4>
+        <ul>
+          <li><a href="#services">Home WiFi</a></li>
+          <li><a href="#services">Hotspot WiFi</a></li>
+          <li><a href="#services">Rental Property WiFi</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">© 2026 SKYDIVE NET. All Rights Reserved.</div>
+  </div>
+</footer>
+
+<a href="#" id="floatWaBtn" class="float-wa" aria-label="Chat on WhatsApp">💬</a>
+
+<script>
+  const WHATSAPP_NUMBER = "254719603552"; // international format, no +
+  const BACKEND_URL = "https://YOUR-BACKEND-DOMAIN.example.com"; // <-- set this to your deployed backend URL
+
+  function waLink(message){
+    return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
+  }
+
+  document.getElementById('waMainBtn').href = waLink("Hello SKYDIVE NET, I would like to get connected. Please share more information about your packages.");
+  document.getElementById('floatWaBtn').href = waLink("Hello SKYDIVE NET, I would like to get connected. Please share more information about your packages.");
+  document.getElementById('eligibilityBtn').href = waLink("Hello SKYDIVE NET, I would like to check if my rental property qualifies for the free hotspot WiFi offer (10+ doors).");
+  document.getElementById('coverageWaBtn').href = waLink("Hello SKYDIVE NET, I would like to check if you cover my area.");
+
+  document.querySelectorAll('.plan-select').forEach(btn=>{
+    btn.addEventListener('click', e=>{
+      e.preventDefault();
+      const plan = e.target.closest('.plan');
+      const speed = plan.dataset.speed, price = plan.dataset.price;
+      window.open(waLink(`Hello SKYDIVE NET, I am interested in the ${speed} package at KSH ${Number(price).toLocaleString()}.`), '_blank');
+    });
+  });
+
+  // Mobile menu
+  const hamburger = document.getElementById('hamburger');
+  const mobileMenu = document.getElementById('mobileMenu');
+  hamburger.addEventListener('click', ()=> mobileMenu.classList.toggle('open'));
+  mobileMenu.querySelectorAll('a').forEach(a=> a.addEventListener('click', ()=> mobileMenu.classList.remove('open')));
+
+  // Scroll reveal
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach(en=>{ if(en.isIntersecting){ en.target.classList.add('in'); io.unobserve(en.target); } });
+  }, {threshold:0.12});
+  document.querySelectorAll('.reveal').forEach(el=> io.observe(el));
+
+  // FAQ accordion
+  document.querySelectorAll('.faq-q').forEach(q=>{
+    q.addEventListener('click', ()=>{
+      const item = q.parentElement;
+      const ans = item.querySelector('.faq-a');
+      const isOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item').forEach(i=>{ i.classList.remove('open'); i.querySelector('.faq-a').style.maxHeight = null; });
+      if(!isOpen){ item.classList.add('open'); ans.style.maxHeight = ans.scrollHeight + 'px'; }
+    });
+  });
+  // init first faq open height
+  window.addEventListener('load', ()=>{
+    const first = document.querySelector('.faq-item.open .faq-a');
+    if(first) first.style.maxHeight = first.scrollHeight + 'px';
+  });
+
+  // Contact form -> WhatsApp
+  document.getElementById('contactForm').addEventListener('submit', e=>{
+    e.preventDefault();
+    const name = document.getElementById('cfName').value;
+    const phone = document.getElementById('cfPhone').value;
+    const service = document.getElementById('cfService').value;
+    const pkg = document.getElementById('cfPackage').value;
+    const msg = document.getElementById('cfMessage').value;
+    const text = `Hello SKYDIVE NET,\nName: ${name}\nPhone: ${phone}\nService: ${service}\nPackage: ${pkg}\nMessage: ${msg}`;
+    window.open(waLink(text), '_blank');
+  });
+
+  // ---------------- Payment (M-Pesa via Paystack Charge API, backend-only) ----------------
+  let selectedPlan = { speed: "20 Mbps", price: 3000 };
+  const payAmountEl = document.getElementById('payAmount');
+  document.querySelectorAll('.pay-plan-option').forEach(opt=>{
+    opt.addEventListener('click', ()=>{
+      document.querySelectorAll('.pay-plan-option').forEach(o=>o.classList.remove('active'));
+      opt.classList.add('active');
+      selectedPlan = { speed: opt.dataset.speed, price: Number(opt.dataset.price) };
+      payAmountEl.textContent = `KSH ${selectedPlan.price.toLocaleString()}`;
+    });
+  });
+
+  const payStatusEl = document.getElementById('payStatus');
+  const payNowBtn = document.getElementById('payNowBtn');
+
+  function showStatus(type, html){
+    payStatusEl.className = `pay-status show ${type}`;
+    payStatusEl.innerHTML = html;
+  }
+
+  function normalizePhone(input){
+    let p = input.replace(/\s+/g,'').replace(/^\+/,'');
+    if(p.startsWith('0')) p = '254' + p.slice(1);
+    if(p.startsWith('7') || p.startsWith('1')) p = '254' + p;
+    return p;
+  }
+
+  async function pollStatus(reference, attempts=0){
+    if(attempts > 20){
+      showStatus('error', `Payment not confirmed yet. If you approved the M-Pesa prompt, please wait a moment and contact us with reference <b>${reference}</b>.`);
+      payNowBtn.disabled = false; payNowBtn.textContent = 'Pay Now';
+      return;
+    }
+    try{
+      const res = await fetch(`${BACKEND_URL}/api/payment-status/${reference}`);
+      const data = await res.json();
+      if(data.status === 'success'){
+        showStatus('success', `
+          PAYMENT SUCCESSFUL ✅
+          <div class="receipt">
+            <div><span>Package</span>${data.plan}</div>
+            <div><span>Amount Paid</span>KSH ${Number(data.amount).toLocaleString()}</div>
+            <div><span>Phone</span>${data.phone}</div>
+            <div><span>Reference</span>${data.reference}</div>
+            <div><span>Date/Time</span>${new Date(data.date).toLocaleString()}</div>
+          </div>`);
+        payNowBtn.disabled = false; payNowBtn.textContent = 'Pay Now';
+      } else if(data.status === 'failed'){
+        showStatus('error', `Payment failed or was cancelled. Please try again.`);
+        payNowBtn.disabled = false; payNowBtn.textContent = 'Pay Now';
+      } else {
+        setTimeout(()=> pollStatus(reference, attempts+1), 3000);
+      }
+    } catch(err){
+      setTimeout(()=> pollStatus(reference, attempts+1), 3000);
+    }
+  }
+
+  payNowBtn.addEventListener('click', async ()=>{
+    const phoneInput = document.getElementById('mpesaPhone').value.trim();
+    if(!/^(0|\+?254)?7\d{8}$|^(0|\+?254)?1\d{8}$/.test(phoneInput.replace(/\s+/g,''))){
+      showStatus('error', 'Please enter a valid M-Pesa phone number.');
+      return;
+    }
+    const phone = normalizePhone(phoneInput);
+    payNowBtn.disabled = true;
+    payNowBtn.innerHTML = '<span class="spinner"></span> Sending STK push...';
+    showStatus('pending', 'Check your phone for the M-Pesa PIN prompt...');
+
+    try{
+      const res = await fetch(`${BACKEND_URL}/api/initiate-payment`, {
+        method: 'POST',
+        headers: {'Content-Type':'application/json'},
+        body: JSON.stringify({ phone, amount: selectedPlan.price, plan: selectedPlan.speed })
+      });
+      const data = await res.json();
+      if(!res.ok || !data.reference){
+        showStatus('error', data.message || 'Could not start payment. Please try again.');
+        payNowBtn.disabled = false; payNowBtn.textContent = 'Pay Now';
+        return;
+      }
+      pollStatus(data.reference);
+    } catch(err){
+      showStatus('error', 'Network error. Please check your connection and try again.');
+      payNowBtn.disabled = false; payNowBtn.textContent = 'Pay Now';
+    }
+  });
+</script>
+</body>
+</html>
